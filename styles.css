@@ -29,10 +29,10 @@ h1{
   margin: 0 10px;
   cursor: pointer;
 }
-#b0{
+/* #b0{
   position: relative;
   left: 150%;
-}
+} */
 
 .grid-item:hover{
   opacity: 0.5;
