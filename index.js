@@ -7,10 +7,16 @@ var v2;
 var result = 0.0;
 var op;
 
-console.log(s);
 
 for(var x = 0; x < 16; x++){
   d[x].addEventListener("click", myFunction);
+}
+
+function hoverEvent(){
+  d[3].addEventListener("mouseover", mouseOver);
+  d[7].addEventListener("mouseover", mouseOver);
+  d[11].addEventListener("mouseover", mouseOver);
+  d[15].addEventListener("mouseover", mouseOver);
 }
 
 function offOperation(){
@@ -34,10 +40,10 @@ function onOperation(){
 }
 
 function makeOpaque(){
-  d[3].style.opacity = 0.5;
-  d[7].style.opacity = 0.5;
-  d[11].style.opacity = 0.5;
-  d[15].style.opacity = 0.5;
+  // d[3].style.opacity = 0.5;
+  // d[7].style.opacity = 0.5;
+  // d[11].style.opacity = 0.5;
+  // d[15].style.opacity = 0.5;
 }
 
 function removeOpaque(){
@@ -45,6 +51,34 @@ function removeOpaque(){
   d[7].style.opacity = 1;
   d[11].style.opacity = 1;
   d[15].style.opacity = 1;
+}
+
+function mouseOver(){
+
+  if (this.innerText === '+'){
+    d[3].style.opacity = 0.5;
+    d[7].style.opacity = 1;
+    d[11].style.opacity = 1;
+    d[15].style.opacity = 1;
+
+  }else if(this.innerText === '-'){
+    d[3].style.opacity = 1;
+    d[7].style.opacity = 0.5;
+    d[11].style.opacity = 1;
+    d[15].style.opacity = 1;
+
+  }else if(this.innerText === '/'){
+    d[3].style.opacity = 1;
+    d[7].style.opacity = 1;
+    d[11].style.opacity = 0.5;
+    d[15].style.opacity = 1;
+
+  }else if(this.innerText === 'x'){
+    d[3].style.opacity = 1;
+    d[7].style.opacity = 1;
+    d[11].style.opacity = 1;
+    d[15].style.opacity = 0.5;
+  }
 }
 
 
@@ -75,6 +109,8 @@ function myFunction(){
   else if(this.innerText === 'x'){
     console.log(this);
     op = multiply;
+  }else if(this.innerText === 'CE'){
+    location.reload();
   }
 
   // if(this.innerText === '='){
@@ -103,3 +139,4 @@ function calculate(value1, value2, operation){
 }
 
 offOperation();
+hoverEvent();
